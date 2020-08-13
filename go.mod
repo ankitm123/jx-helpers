@@ -29,7 +29,7 @@ require (
 	k8s.io/apimachinery v0.16.5
 	k8s.io/client-go v0.16.5
 	sigs.k8s.io/kustomize/kyaml v0.6.0
-	sigs.k8s.io/yaml v1.1.0
+	sigs.k8s.io/yaml v1.2.0
 )
 
 replace (
