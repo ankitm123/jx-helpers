@@ -80,6 +80,12 @@ type StableVersion struct {
 	URL string `json:"url,omitempty"`
 	// Namespace the default namespace to install this chart if none is specified
 	Namespace string `json:"namespace,omitempty"`
+	// File is missing
+	missing bool
+}
+
+func (data *StableVersion) Missing() bool {
+	return data.missing
 }
 
 // VerifyPackage verifies the current version of the package is valid
@@ -192,6 +198,7 @@ func LoadStableVersionFile(path string) (*StableVersion, error) {
 		return version, fmt.Errorf("failed to check if file exists %s: %w", path, err)
 	}
 	if !exists {
+		version.missing = true
 		return version, nil
 	}
 	data, err := os.ReadFile(path)
